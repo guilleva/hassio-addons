@@ -32,7 +32,8 @@
         "mqtt_user": "str?",
         "mqtt_pass": "str?",
         "hass_discovery_prefix": "str?",
-        "hass_entity_id_prefix": "str?"
+        "hass_entity_id_prefix": "str?",
+        "input_data_format": "match(ecowitt|ambient_weather|wunderground)"
     },
     "ports": {
         "8000/tcp": 8000
