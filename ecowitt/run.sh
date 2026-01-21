@@ -31,6 +31,13 @@ if bashio::config.has_value 'mqtt_pass'; then
   MQTT_PASS=$(bashio::config 'mqtt_pass')
 fi
 
+# Get the input data format
+if bashio::config.has_value 'input_data_format'; then
+  INPUT_DATA_FORMAT=$(bashio::config 'input_data_format')
+else
+  INPUT_DATA_FORMAT="ecowitt"
+fi
+
 # Get the Unit systems
 if bashio::config.has_value 'output_unit_system'; then
   OUTPUT_UNIT_SYSTEM=$(bashio::config 'output_unit_system')
@@ -71,4 +78,5 @@ ecowitt2mqtt \
     --output-unit-system "${OUTPUT_UNIT_SYSTEM}" \
     --hass-discovery \
     --hass-discovery-prefix="${HASS_DISCOVERY_PREFIX}" \
+    --input-data-format="${INPUT_DATA_FORMAT}" \
     --port=8000 "${ADDL_PARAMS[@]}"
